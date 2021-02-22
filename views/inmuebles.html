@@ -1,0 +1,70 @@
+<!--entro {{proyecto}}
+
+<ul>
+    <li ng-repeat="torre in torres | orderBy:'name'  ">
+        {{torre.identificador}} - <strong> {{ $index+1 }} </strong> - {{torre.name}}
+    </li>
+</ul>
+
+-->
+<div class="container">
+    <div class="row">
+        <div class="col col-md-12">
+            <div class="inmuebles">
+                <p class="font-weight-bold">Disponibilidad de inmuebles</p>
+                <div class="col-md-12">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="proyecto_nombre">Seleccione la torre <span class="required">*</span></label>
+                            <br>
+                            <select class="form-control" ng-model="torreSeleccionada" ng-change="consultarPisosTorre()">
+                                <option ng-repeat="torre in torres | orderBy:'name' " value="{{torre.identificador}}">
+                                    Torre - <strong> {{ $index+1 }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="proyecto_nombre">Seleccione el piso <span class="required">*</span></label>
+                            <br>
+                            <select class="form-control" ng-model="pisoSeleccionado" ng-change="consultarInmueblesPisos()">
+                                <option ng-repeat="piso in pisos" value="{{piso}}">
+                                    {{piso}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-responsive form-group col-md-6">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Apartamento</th>
+                                    <th>Área total construida</th>
+                                    <th>Estado</th>
+                                    <th>Alcobas</th>
+                                </tr>
+                            </thead>
+                            <tr ng-repeat="inmueble in inmuebles | orderBy:'name' ">
+                                <td>{{inmueble.name}}</td>
+                                <td>{{inmueble.area_total_construida}}</td>
+                                <td>{{inmueble.estado}}</td>
+                                <td>{{inmueble.numero_de_alcoba}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--<select id="piso">
+    <option value="0">Seleccione el piso</option>
+    <option value="1">piso 1</option>
+    <option value="2">piso 2</option>
+    <option value="3">piso 3</option>
+    <option value="4">piso 4</option>
+</select>-->
